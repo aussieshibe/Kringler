@@ -1,0 +1,27 @@
+<% include ./components/header %>
+<div class="panel panel-default">
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-8 text-center">
+
+			<h1>Welcome to Kringler, <%= name %>!</h1>
+			<h4>Let's get Kringly!</h4>
+
+			<p><br></p>
+
+			<% if(kringles.length < 1) { %>
+				<p>Oh no! It looks like you're not a Kringler yet!</p>
+				<p>Why not <a href="/home/join">join a Kringle</a> or <a href="/home/kreate">create your own</a>!</p>
+
+			<% } else { %>
+				<p>You are currently a Kringler in the following Kringles:</p>
+
+				<% for(var i = 0; i < kringles.length; i++) { %>
+					<a href="/kringle/<%= kringles[i]._id %>"><%= kringles[i].name %></a>
+				<% } %>
+			<% } %>
+		</div>
+		<div class="col-md-2"></div>
+	</div>
+</div>
+<% include ./components/footer %>

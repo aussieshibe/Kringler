@@ -1,0 +1,25 @@
+<% include ./components/header %>
+<div class="panel panel-default">
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-8 text-center">
+
+			<h1><%= kringle.name %></h1>
+
+			<p><br></p>
+
+			<div class="panel panel-default">
+				<div class="panel-heading"><h3>Kringlers</h3></div>
+
+				<table class="table">
+
+					<% for (var i = 0; i < kringle.participants.length; i++) { %>
+						<tr><td><%= kringle.participants[i].name %></td></tr>
+					<% } %>
+				</table>
+			</div>
+		</div>
+		<div class="col-md-2"></div>
+	</div>
+</div>
+<% include ./components/footer %>

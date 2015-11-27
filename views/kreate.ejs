@@ -1,0 +1,32 @@
+<% include ./components/header %>
+<div class="panel panel-default">
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-8 text-center">
+
+			<h1>Kringle ahoy, <%= name %>!</h1>
+			<h4>I just need a few details first...</h4>
+
+			<form method="post" action="./kreate">
+				<div class="row form-group text-right">
+					<label class="col-md-4" for="kringleName">Kringle Title:</label>
+					<input class="col-md-4" type="text" class="form-control" id="kringleName" name="kringleName" placeholder="My Kringle">
+				</div>
+				<div class="row form-group text-right">
+					<label class="col-md-4" for="kringlePwd">Kringle Password (optional):</label>
+					<input class="col-md-4" type="password" class="form-control" id="kringlePwd" name="kringlePwd" placeholder="Password">
+				</div>
+				<div class="row form-group text-left">
+					<div class="col-md-4"></div>
+					<div class="col-md-4 text-left">
+						<button type="submit" value="Submit">Create Kringle</button>
+					</div>
+				</div>
+			</form>
+
+			</div>
+		</div>
+		<div class="col-md-2"></div>
+	</div>
+</div>
+<% include ./components/footer %>
