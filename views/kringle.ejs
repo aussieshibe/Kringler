@@ -9,15 +9,39 @@
 			<p><br></p>
 
 			<div class="panel panel-default">
-				<div class="panel-heading"><h3>Kringlers</h3></div>
+				<div class="panel-heading">
+					<h3>Kringlers</h3>
+					<h6>(only your match will be displayed)</h6>
+					<p>Kringly invite link: http://kringler.nicknelson.io/kringle/<%= kringle._id %> </p>
+				</div>
 
-				<table class="table">
+				<table class="table table-bordered">
+
+					<tr>
+						<th>Kringler Name</th>
+						<th>Kringler Match</th>
+					</tr>
 
 					<% for (var i = 0; i < kringle.participants.length; i++) { %>
-						<tr><td><%= kringle.participants[i].name %></td></tr>
+						<tr>
+							<td class="col-sm-6"><%= kringle.participants[i].name %></td>
+							<td><%= kringle.participants[i].match.name %></td>
+						</tr>
 					<% } %>
 				</table>
 			</div>
+
+			<% if(isAdmin) { %>
+				<form method="post" action="./<%= kringle._id %>/match">
+					<button action="submit" value="Submit">Match Kringlers!</button>
+				</form>
+			<% } %>
+
+		<% if(!isParticipant) { %>
+			<form method="post" action="./<%= kringle._id %>/join">
+				<button action="submit" value="Submit">Join the Kringle!</button>
+			</form>
+		<% } %>
 		</div>
 		<div class="col-md-2"></div>
 	</div>

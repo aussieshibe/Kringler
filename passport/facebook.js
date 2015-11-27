@@ -36,10 +36,12 @@ module.exports = function(passport) {
 					newUser.fb.access_token = access_token;
 					newUser.fb.firstName = profile.name.givenName;
 					newUser.fb.lastName = profile.name.familyName;
-					newUser.fb.email = profile.emails[0].value;
+
+					if(profile.emails && profile.emails[0])
+						newUser.fb.email = profile.emails[0].value;
 
 					newUser.firstName = profile.name.givenName;
-					newUser.email = profile.emails[0].value;
+					newUser.email = newUser.fb.email;
 
 					//save user to db
 					newUser.save(function(err) {

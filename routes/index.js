@@ -3,7 +3,7 @@ var router = express.Router();
 
 router.get('/', function(req, res) {
 	//display login page + flash message
-	res.render('index', {message: req.flash('message')});
+	res.redirect('login');
 });
 
 

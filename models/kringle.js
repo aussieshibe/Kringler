@@ -8,6 +8,10 @@ module.exports = mongoose.model('Kringle',{
 	},
 	participants: [{
 		_id: 'String',
-		name: 'String'
+		name: 'String',
+		match: {
+			_id: 'String',
+			name: 'String'
+		}
 	}],
 });
