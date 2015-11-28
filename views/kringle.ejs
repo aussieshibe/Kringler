@@ -10,16 +10,18 @@
 
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<h3>Kringlers</h3>
-					<h6>(only your match will be displayed)</h6>
-					<p>Kringly invite link: http://kringler.nicknelson.io/kringle/<%= kringle._id %> </p>
+
+					<p><%= kringle.description %></p>
+					
+					<p>Kringly invite link: <a href="http://kringler.nicknelson.io/kringle/<%= kringle._id %>">http://kringler.nicknelson.io/kringle/<%= kringle._id %></a></p>
+					<p>Return to this page when everyone has registered and the Kringliser has matched the Kringlers!</p>
 				</div>
 
 				<table class="table table-bordered">
 
 					<tr>
 						<th>Kringler Name</th>
-						<th>Kringler Match</th>
+						<th>Kringler Match <small>(only your match will be displayed)<small></th>
 					</tr>
 
 					<% for (var i = 0; i < kringle.participants.length; i++) { %>

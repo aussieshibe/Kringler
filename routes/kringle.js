@@ -40,13 +40,12 @@ exports = module.exports = function(){
 			for(var i = 0; i < kringle.participants.length; i++){
 
 				console.log(kringle.participants[i].match);
-				if(kringle.participants[i]._id != req.user._id){
-					if(kringle.participants[i].match._id == undefined){
-						kringle.participants[i].match = {'name': 'Not Matched'};
-					} else {
-						console.log(kringle.participants[i].match._id);
-						kringle.participants[i].match = {'name': 'Matched'};
-					}
+
+				if(kringle.participants[i].match._id == undefined){
+					kringle.participants[i].match = {'name': 'Not Matched'};
+				} else if(kringle.participants[i]._id != req.user._id){
+					console.log(kringle.participants[i].match._id);
+					kringle.participants[i].match = {'name': 'Matched'};
 				}
 			}
 

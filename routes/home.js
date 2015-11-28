@@ -17,12 +17,13 @@ exports = module.exports = function(passport){
 
 	router.get('/', isAuthenticated, function(req, res){
 		Kringle.find({ $or: [{'participants._id': req.user._id}, {'owner._id': req.user._id}]}, function(err, kringles){
-			res.render('home', {'name': req.user.name, 'kringles': kringles});
+			res.render('home', {'name': req.user.firstName, 'kringles': kringles});
 		});
 	});
 
 	router.get('/kreate', isAuthenticated, function(req, res){
-		res.render('kreate', {'name': req.user.name, 'kringles': []});
+		console.log(req.user);
+		res.render('kreate', {'name': req.user.firstName, 'kringles': []});
 	});
 
 	router.post('/kreate', isAuthenticated, function(req, res){
@@ -33,6 +34,7 @@ exports = module.exports = function(passport){
 			var kringle = new Kringle();
 			kringle.name = req.body.kringleName;
 			kringle.password = req.body.kringlePassword;
+			kringle.description = req.body.kringleDescription;
 			kringle.owner = { '_id': user._id, 'name': user.firstName };
 			kringle.participants = [{name: user.firstName, _id: user._id}];
 			kringle.save(function(err, done){

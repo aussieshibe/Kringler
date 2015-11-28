@@ -19,3 +19,8 @@ div.fb-like {
 	max-height: 100px;
 	overflow: scroll;
 }
+
+#kringleDescription {
+	resize: vertical;
+
+}
